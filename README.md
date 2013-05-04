@@ -11,22 +11,14 @@
 # Project
 
 ***
-## Developing a client side plug-in to detect anomalies on the client-side of a web application, sponsored by the C.C.C.E. 
+## Client side plug-in to detect anomalies on the client-side of a web application, sponsored by the C.C.C.E. 
 ### Source Code:
 ```
 $ Coming Soon 
 ```
 ***
 
-## Worked with the Pdcurses C++ library to create text based games and ASCII art.
-### Source Code:
-
-```
-$ Coming Soon 
-```
-***
-
-## Worked with the Alegro C++ library to create a side scroller game.
+## Pdcurses C++ text based games and ASCII art.
 ### Source Code:
 
 ```
@@ -34,8 +26,16 @@ $ Coming Soon
 ```
 ***
 
+## Alegro C++ side scroller game.
+### Source Code:
 
-## Worked with the Unity3D  to create a basic mood to the game "Bootcamp"
+```
+$ Coming Soon 
+```
+***
+
+
+##  Unity3D  to create a basic mood to the game "Bootcamp"
 ### Source Code:
 
 ```
