@@ -6,9 +6,8 @@ Hello! I'm a Computer Engineering Mayor currrently studying in the University of
 # Interest
 ***
 * Social Media Networks: Interested in new ways to connect the world through the internet.
-* Programming: Research of new languages and ways of programming. Researching internet security and any other security topic. Learning new more efficient algorithms to reduce time of calculations.
-* Entrepreneurship: I love learning how the builders of owr modern society solved complex problems and made their ideas a reallity.
-
+* Programming: Researching of new languages and ways of programming. Researching internet security and any other security topic. Learning new more efficient algorithms to reduce time of calculations.
+* Entrepreneurship: I love learning how the builders of our modern society solved complex problems and made their ideas a reallity.
 
 # Experience 
 ***
@@ -62,21 +61,22 @@ $ Coming Soon
 # Skills 
 ***
 ### Technical Skills 
-* Programming: C, C++, Java(2 years), Javascript(JQuery), Html
-* Software: MS Office (Word, Excel, Power Point), Netbeans, Eclipse, Dev-C++, VirtualBox
-* Operating Systems: Windows XP,7; Linux (Ubuntu-Devian);
+* Programming: C, C++, Java(2 years as of 2011), Javascript and JQuery, HTML, CSS;
+* Software: MS Office: Word, Excel, Power Point. , Netbeans, Eclipse, Dev-C++, VirtualBox;
+* Operating Systems: Windows XP, Windows 7, Windows 8, Linux (Ubuntu-Devian);
 
 ### Soft Skills
-* Fluent in Spanish and English
+* Fluent in Spanish and English;
 
 
 # Extracurricular Activities
 ***
-* April 2013 - April 2013 : Was part of the winning team of “Reto Colegial 9”. It was a university competetion, we won an all expense paid trip to Luisiana to the Henaac Conference!
+* On April 2013 I was part of the winning team of “Reto Colegial 9”. It was a university competetion, we won an all expense paid trip to Luisiana to the Henaac Conference!
 * Project Euler : A web application desing to test your mathematical reasoning and programing abilities. 
-* Khan Academy, Acount:Apo45ty
+* Khan Academy: Username - Apo45ty
 * Standford's Coursera: Great way to learn stuff!
 * Udacity: A web Application dedicated to teaching you and Steve Huffman is working with it :) !
 * Code Academy: A website dedicated to teaching you the programers way of Zen :)
 * hackthissite.org : A web page dedicated to training you in the art of ninja !
+* Reading about: PowerShell, Scala, Javascript, Python, Arduino, Haskell
 
