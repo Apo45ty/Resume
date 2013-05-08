@@ -94,4 +94,4 @@ $ Coming Soon
 # Social Networks
 *** 
 Linkedin : <a href="https://pr.linkedin.com/in/apo45ty">pr.linkedin.com/in/apo45ty </a><br/>
-Linkedin : <a href="https://twitter.com/Antonio74563218">twitter.com/Antonio74563218</a><br/>
+Twitter : <a href="https://twitter.com/Antonio74563218">twitter.com/Antonio74563218</a><br/>
