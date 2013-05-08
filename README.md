@@ -42,14 +42,14 @@ $ git remote add upstream https://github.com/Apo45ty/Pd-Curses-Games.git
 $ git fetch upstream
 ```
 
+<a href="http://apo45ty.github.io/Allegro-Games/">
 ### Allegro C++ side scroller game.
+</a>
   Description:
 ```
 After I finished a series of mini games with the PdCurses library I began to research more advance 
 libraries and I came across Allegro C++. 
 
-Project Page
-$ http://apo45ty.github.io/Allegro-Games/
 ```
   Source Code:
 ```
