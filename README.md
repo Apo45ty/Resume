@@ -43,7 +43,7 @@ $ git fetch upstream
 ```
 
 <a href="http://apo45ty.github.io/Allegro-Games/">
-### Allegro C++ side scroller game.
+### Allegro C++ games.
 </a>
   Description:
 ```
@@ -58,6 +58,7 @@ $ cd <your dirrectory>
 $ git remote add upstream https://github.com/Apo45ty/Allegro-Games.git
 $ git fetch upstream
 ```
+
 ###  Unity3D  to create a basic mod to the game "Bootcamp".
   Description:
 ```
