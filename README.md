@@ -32,21 +32,27 @@ $ Coming Soon
 ### Pdcurses C++ text based games and ASCII art.
   Description:
 ```
-$ Coming Soon 
+This was my very first attempt at making a video game!
 ```
   Source Code:
 ```
-$ Coming Soon 
+$ git clone https://github.com/Apo45ty/Pd-Curses-Games.git
+$ cd <your dirrectory>
+$ git remote add upstream https://github.com/Apo45ty/Pd-Curses-Games.git
+$ git fetch upstream
 ```
 
-### Alegro C++ side scroller game.
+### Allegro C++ side scroller game.
   Description:
 ```
-$ Coming Soon 
+After I finished a series of mini games with the PdCurses library I began to research more advance libraries and I came across Allegro C++.
 ```
   Source Code:
 ```
-$ Coming Soon 
+$ git clone https://github.com/Apo45ty/Allegro-Games.git
+$ cd <your dirrectory>
+$ git remote add upstream https://github.com/Apo45ty/Allegro-Games.git
+$ git fetch upstream
 ```
 ###  Unity3D  to create a basic mod to the game "Bootcamp".
   Description:
@@ -57,6 +63,8 @@ $ Coming Soon
 ```
 $ Coming Soon 
 ```
+
+</> Instructions powered by <address>https://help.github.com/articles/fork-a-repo</address>
 
 # Skills 
 ***
