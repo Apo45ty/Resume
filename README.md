@@ -45,7 +45,8 @@ $ git fetch upstream
 ### Allegro C++ side scroller game.
   Description:
 ```
-After I finished a series of mini games with the PdCurses library I began to research more advance libraries and I came across Allegro C++. 
+After I finished a series of mini games with the PdCurses library I began to research more advance 
+libraries and I came across Allegro C++. 
 
 Project Page
 $ http://apo45ty.github.io/Allegro-Games/
