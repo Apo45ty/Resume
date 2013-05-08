@@ -1,4 +1,4 @@
-#Preamble
+# Preamble
 ***
 Hello! I'm a Computer Engineering Mayor currrently studying in the University of Puerto Rico at Mayaguez.  This is my Resume / Git Hub Project Guide with it I hope to give you more insigth as to who I am and what I like.
 
@@ -42,14 +42,14 @@ $ git remote add upstream https://github.com/Apo45ty/Pd-Curses-Games.git
 $ git fetch upstream
 ```
 
-<a href="http://apo45ty.github.io/Allegro-Games/">
-### Allegro C++ games.
-</a>
-  Description:
+
+### Allegro C++ games. 
+ Description:
 ```
 After I finished a series of mini games with the PdCurses library I began to research more advance 
 libraries and I came across Allegro C++. 
 
+More at "http://apo45ty.github.io/Allegro-Games/".
 ```
   Source Code:
 ```
@@ -90,4 +90,3 @@ $ Coming Soon
 * Code Academy: A website dedicated to teaching you the programers way of Zen :)
 * hackthissite.org : A web page dedicated to training you in the art of ninja !
 * Reading about: PowerShell, Scala, Javascript, Python, Arduino, Haskell
-
