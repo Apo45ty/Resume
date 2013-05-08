@@ -1,6 +1,6 @@
 # Preamble
 ***
-Hello! I'm a Computer Engineering Mayor currrently studying in the University of Puerto Rico at Mayaguez.  This is my Resume / Git Hub Project Guide with it I hope to give you more insigth as to who I am and what I like.
+Hello! I'm a Computer Engineering Mayor currrently studying in the University of Puerto Rico at Mayaguez.  This is my Resume / Git Hub Project Guide with it I hope to give you more insigth as to who I am and what I like. 
 
 
 # Interest
@@ -90,3 +90,7 @@ $ Coming Soon
 * Code Academy: A website dedicated to teaching you the programers way of Zen :)
 * hackthissite.org : A web page dedicated to training you in the art of ninja !
 * Reading about: PowerShell, Scala, Javascript, Python, Arduino, Haskell
+
+# Social Networks
+*** 
+Linkedin : <a href="pr.linkedin.com/in/apo45ty">pr.linkedin.com/in/apo45ty </a><br/>
