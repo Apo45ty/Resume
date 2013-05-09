@@ -19,6 +19,22 @@ Hello! I'm a Computer Engineering Mayor currrently studying in the University of
 # Projects
 ***
 
+### Entrepreneur Simulator Web App Game.
+  Description:
+```
+This was the app I created for my ADMI6005 class.
+
+More at "https://github.com/Apo45ty/Company-Simulator".
+```
+  Source Code:
+```
+$ git clone https://github.com/Apo45ty/Company-Simulator.git
+$ cd <your dirrectory>
+$ git remote add upstream https://github.com/Apo45ty/Company-Simulator.git
+$ git fetch upstream
+```
+
+
 ### Client side plug-in to detect anomalies on the client-side of a web application, sponsored by the C.C.C.E. 
   Description:
 ```
