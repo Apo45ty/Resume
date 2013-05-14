@@ -11,7 +11,7 @@ Hello! I'm a Computer Engineering Mayor currrently studying in the University of
 
 # Experience 
 ***
-### June 2012 – Aug 2012 Worked an Internship LSIIT (Image Sciences, Computer Sciences and Remote Sensing Laboratory) of the University of Strasbourg, France.
+### <div name="LSIIT"></div>June 2012 – Aug 2012 Worked an Internship LSIIT (Image Sciences, Computer Sciences and Remote Sensing Laboratory) of the University of Strasbourg, France.
 * Develop a Java plug in for the version four of a program called Protégé. The purpose of the plug-in was to add the functionality to Protégé so that it may read individuals from a file in ARFF(Attribute Relation File Format).
 * I worked with ontologies and remote sensing algorithms.
 
@@ -20,7 +20,7 @@ Hello! I'm a Computer Engineering Mayor currrently studying in the University of
 ***
 
 
-### Policitizen.
+### <div name="Policitizen"></div>Policitizen.
   Description:
 ```
 This is the Web app I developed for the Icom 5016 class 
@@ -75,7 +75,7 @@ $ git fetch upstream
 ```
 
 
-### Allegro C++ games. 
+### <div name="Allegro"></div>Allegro C++ games. 
  Description:
 ```
 After I finished a series of mini games with the PdCurses library I began to research more advance 
@@ -104,7 +104,11 @@ $ Coming Soon
 # Skills 
 ***
 ### Technical Skills 
-* Programming: C, C++, Java(2 years as of 2011), Javascript and JQuery, HTML, CSS;
+* Programming Languange Experience: 
+** C,C++ (Game Development for 1 year from 2010-2011. <a href='#Allegro'>"See Allegro"</a> on Projects above.), 
+** Java(Language of Choice for 2 years as of 2011. See <a href='#LSIIT'>"LSIIT Internship"</a> on Experience above.), 
+** Javascript and JQuery, HTML, CSS (Used for Databases Course. See <a href='#Policitizen'>"Policitizen"</a> on Projects above.);
+* Advance Algorithm Desing: I have taken a course in Advance Algorithm Desing.
 * Software: MS Office: Word, Excel, Power Point. , Netbeans, Eclipse, Dev-C++, VirtualBox;
 * Operating Systems: Windows XP, Windows 7, Windows 8, Linux (Ubuntu-Devian);
 
