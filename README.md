@@ -105,9 +105,9 @@ $ Coming Soon
 ***
 ### Technical Skills 
 * Programming Languange Experience: 
-** C,C++ (Game Development for 1 year from 2010-2011. <a href='#Allegro'>"See Allegro"</a> on Projects above.), 
-** Java(Language of Choice for 2 years as of 2011. See <a href='#LSIIT'>"LSIIT Internship"</a> on Experience above.), 
-** Javascript and JQuery, HTML, CSS (Used for Databases Course. See <a href='#Policitizen'>"Policitizen"</a> on Projects above.);
+* C,C++ (Game Development for 1 year from 2010-2011. <a href='#Allegro'>"See Allegro"</a> on Projects above.), 
+* Java(Language of Choice for 2 years as of 2011. See <a href='#LSIIT'>"LSIIT Internship"</a> on Experience above.), 
+* Javascript and JQuery, HTML, CSS (Used for Databases Course. See <a href='#Policitizen'>"Policitizen"</a> on Projects above.);
 * Advance Algorithm Desing: I have taken a course in Advance Algorithm Desing.
 * Software: MS Office: Word, Excel, Power Point. , Netbeans, Eclipse, Dev-C++, VirtualBox;
 * Operating Systems: Windows XP, Windows 7, Windows 8, Linux (Ubuntu-Devian);
