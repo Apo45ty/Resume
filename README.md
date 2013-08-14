@@ -126,6 +126,7 @@ $ Coming Soon
 * Code Academy: A website dedicated to teaching you the programers way of Zen :)
 * hackthissite.org : A web page dedicated to training you in the art of ninja !
 * Reading about: PowerShell, Scala, Javascript, Python, Arduino, Haskell
+* CodeSchool.com : A place to learn coding principals begining to end.
 
 # Social Networks
 *** 
