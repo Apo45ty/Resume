@@ -10,10 +10,15 @@ Hello! I'm a Computer Engineering Mayor currrently studying in the University of
 * Entrepreneurship: I love learning how the builders of our modern society solved complex problems and made their ideas a reallity.
 
 # Experience 
-***
+*** 
+###Jun 2013 - Aug 2013 Systems Engineering Intern, Verizon Wireline
+* Developed a front-end UI utilizing existing project infrastructure in conjunction with JQuery Mobile and KnockoutJS
+* Researched new web technologies such as AngularJS, Responsive Design and SSAS CSS.
+
 ### <div name="LSIIT"></div>June 2012 – Aug 2012 Worked an Internship LSIIT (Image Sciences, Computer Sciences and Remote Sensing Laboratory) of the University of Strasbourg, France.
-* Develop a Java plug in for the version four of a program called Protégé. The purpose of the plug-in was to add the functionality to Protégé so that it may read individuals from a file in ARFF(Attribute Relation File Format).
-* I worked with ontologies and remote sensing algorithms.
+* Developed a plug-in ,written in Java, for version four of the Protégé ontology visualizing and interpreting software.
+* I learned how to parse files in ARFF (Attribute Relation File Format).
+* Learned about hyper-spectral imaging and remote sensing.
 
 
 # Projects
@@ -118,7 +123,11 @@ $ Coming Soon
 
 # Extracurricular Activities
 ***
-* On April 2013 I was part of the winning team of “Reto Colegial 9”. It was a university competetion, we won an all expense paid trip to Luisiana to the Henaac Conference!
+* I was part of the winning team of “Reto Collegial”. This earned me the right to participate in HENAAC college
+bowl on October 3rd - 5th LA. The competition consisted of 4 other teams with varying number of participants
+pined against each other, these teams must quickly come up with sketches and ideas for products,
+marketing campaigns or product solutions (See HENAAC).
+* 
 * Project Euler : A web application desing to test your mathematical reasoning and programing abilities. 
 * Khan Academy: Username - Apo45ty
 * Standford's Coursera: Great way to learn stuff!
