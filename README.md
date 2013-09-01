@@ -127,7 +127,6 @@ $ Coming Soon
 bowl on October 3rd - 5th LA. The competition consisted of 4 other teams with varying number of participants
 pined against each other, these teams must quickly come up with sketches and ideas for products,
 marketing campaigns or product solutions (See HENAAC).
-* 
 * Project Euler : A web application desing to test your mathematical reasoning and programing abilities. 
 * Khan Academy: Username - Apo45ty
 * Standford's Coursera: Great way to learn stuff!
