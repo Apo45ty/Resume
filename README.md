@@ -140,3 +140,4 @@ marketing campaigns or product solutions (See HENAAC).
 *** 
 Linkedin : <a href="https://pr.linkedin.com/in/apo45ty">pr.linkedin.com/in/apo45ty </a><br/>
 Twitter : <a href="https://twitter.com/Antonio74563218">twitter.com/Antonio74563218</a><br/>
+AngelList : <a href="https://angel.co/antonio-tapia-maldonado">angel.co/antonio-tapia-maldonado</a><br/>
