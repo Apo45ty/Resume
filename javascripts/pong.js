@@ -7,10 +7,12 @@ var KEYCODE_W=119;
 var KEYCODE_S=115;
 var PLAYER1_DOWN_KEYCODE=KEYCODE_S;
 var PLAYER1_UP_KEYCODE=KEYCODE_W;
-var INITIAL_UPWARD_MOVE_ACCELARATION_PLAYER1=1;
-var INITIAL_DOWNWARD_MOVE_ACCELARATION_PLAYER1=1;
+var INITIAL_UPWARD_MOVE_ACCELARATION_PLAYER1=5;
+var INITIAL_DOWNWARD_MOVE_ACCELARATION_PLAYER1=5;
 var UPWARD_MOVE_ACCELARATION_PLAYER1=INITIAL_UPWARD_MOVE_ACCELARATION_PLAYER1;
 var DOWNWARD_MOVE_ACCELARATION_PLAYER1=INITIAL_DOWNWARD_MOVE_ACCELARATION_PLAYER1;
+var UPWARD_MOVE_ACCELARATION_PLAYER2=INITIAL_UPWARD_MOVE_ACCELARATION_PLAYER1;
+var DOWNWARD_MOVE_ACCELARATION_PLAYER2=INITIAL_DOWNWARD_MOVE_ACCELARATION_PLAYER1;
 var INITIAL_PLAYER1_UPWARD_DEACCELARATE = 1;
 var INITIAL_PLAYER1_DOWNWARD_DEACCELARATE = 1;
 var PLAYER1_UPWARD_DEACCELARATE = INITIAL_PLAYER1_UPWARD_DEACCELARATE;
@@ -85,7 +87,7 @@ function  initializePlayers(){
   console.log("Initializing Player2");
   window.player2={};
   player2.y=PADDLE_START_POINT;
-  player2.dy=1;
+  player2.dy=INITIAL_PLAYER1_UPWARD_DEACCELARATE;
   player2.x = canvas.width - PADDLE_WIDTH;
   player2.width=PADDLE_WIDTH;
   player2.height=PADDLE_HEIGHT;
@@ -221,10 +223,13 @@ function  renderLoop(redrawTimeInSeconds){
     }, redrawTimeInSeconds);
 }
 function render_vars(){
-
+  var targetYs = "";
+  player2.targetYCordQueue.forEach(function(target){
+        targetYs+=target+", ";
+  });
   $('#myStats').html(
     "<br/>Press \'s\' and \'w\' to move the paddle down and up respectively. Press \'a\' to switch player1 paddle mode, press \'c\' to Increase player size and press \'b\' to decrese size."
-    + "<br/>Player1 score =" + player1.score
+    + "<br/>Player1 score =" + player1.score +", Player2 score =" + player2.score
     + "<br/>UPWARD_MOVE_ACCELARATION_PLAYER1 =" +UPWARD_MOVE_ACCELARATION_PLAYER1
     + "<br/>DOWNWARD_MOVE_ACCELARATION_PLAYER1 =" +DOWNWARD_MOVE_ACCELARATION_PLAYER1
     + "<br/>PLAYER1_UPWARD_DEACCELARATE =" +PLAYER1_UPWARD_DEACCELARATE
@@ -233,12 +238,16 @@ function render_vars(){
     + "<br/>HIT_EDGE_FREEZE =" +HIT_EDGE_FREEZE
     + "<br/>OPOSITE_KEY_NOT_PRESSED =" + OPOSITE_KEY_NOT_PRESSED
     + "<br/>CURRENT_KEY =" +  CURRENT_KEY
-    + "<br/>player1.y =" +player1.y
-    + "<br/>player1.dy =" +player1.dy
+    + "<br/>player1.y =" +player1.y + ", player1.dy =" +player1.dy
     + "<br/>HIT_EDGE =" +HIT_EDGE
     + "<br/>CHANGED_KEY_AFTER_HIT_EDGE ="+CHANGED_KEY_AFTER_HIT_EDGE
     + "<br/>PLAYER1_MOVEMENT_STATE =" +PLAYER1_MOVEMENT_STATE
+    + "<br/>targetYs =" +targetYs
+    + "<br/>Current Target ="+player2.currentYTarget
+    + "<br/>Player2.dy ="+player2.dy + ", player2.y ="+player2.y
+    + "<br/>AI level ="+AI_DIFICULTY +" ai should be heading "+((gameballs[0].y-(player2.y+player2.height/2))>0?"down":"up")
   );
+
 }
 function  logicLoop(updateLogicTimeInSeconds){
   console.log("Updating game loop logic every "+updateLogicTimeInSeconds);
@@ -250,6 +259,9 @@ function  logicLoop(updateLogicTimeInSeconds){
   //re-do Logic for game
   LOGIC_LOOP_READY = false;
   window.LOGIC_LOOP =  setInterval(function(){
+    //Make sure state number and string are start
+    PLAYER1_MOVEMENT_STATE = PLAYER1_MOVEMENT_MODIFIERS[CURRENT_STATE];
+    AI_DIFICULTY = AI_DIFICULTYS[CURRENT_AI_DIFICULTY];
         //console.log("Updating player one position / " + id);
         gameballs.forEach(function(gameball){
           //Move ball and its shadow
@@ -309,7 +321,7 @@ function  logicLoop(updateLogicTimeInSeconds){
                 HIT_EDGE_FREEZE=false;
                 KEY_CHANGE_STOP_PADDLE = false;
                 break;
-          case "RANDOM_POSITIVE_ACCELARATION":
+          case "RANDOM_POSITIVE_ACCELARATION"://TODO
                 UPWARD_MOVE_ACCELARATION_PLAYER1=INITIAL_UPWARD_MOVE_ACCELARATION_PLAYER1;
                 DOWNWARD_MOVE_ACCELARATION_PLAYER1=INITIAL_DOWNWARD_MOVE_ACCELARATION_PLAYER1;
                 PLAYER1_UPWARD_DEACCELARATE=INITIAL_PLAYER1_DOWNWARD_DEACCELARATE;
@@ -318,7 +330,7 @@ function  logicLoop(updateLogicTimeInSeconds){
                 HIT_EDGE_FREEZE=false;
                 KEY_CHANGE_STOP_PADDLE = true;
                 break;
-          case "RANDOM_NEGATIVE_ACCELARATION":
+          case "RANDOM_NEGATIVE_ACCELARATION"://TODO
                 UPWARD_MOVE_ACCELARATION_PLAYER1=INITIAL_UPWARD_MOVE_ACCELARATION_PLAYER1;
                 DOWNWARD_MOVE_ACCELARATION_PLAYER1=INITIAL_DOWNWARD_MOVE_ACCELARATION_PLAYER1;
                 PLAYER1_UPWARD_DEACCELARATE=INITIAL_PLAYER1_DOWNWARD_DEACCELARATE;
@@ -394,20 +406,43 @@ function aiLoop(aiDificulty,updateAITimeInSeconds){
   }
   //re-do Logic for AI
   AI_LOOP_READY = false;
+  //Set aid specific variables
+  player2.targetYCordQueue = [];
   window.AI_LOOP =  setInterval(function(){
     switch (aiDificulty) {
       case "easy":
+          //find closest ball, maximize problem
+          var clossestGameball=gameballs[0];
+          gameballs.forEach(function(gameball){
+              if(gameball.x>clossestGameball.x){
+                   clossestGameball=gameball;
+              }
+          });
+          //set player boundaries
           if(player2.y>PADDLE_END_POINT-player2.height){
-            player2.dy*=-1;
             player2.y = PADDLE_END_POINT-player2.height;
           }
           if(player2.y<PADDLE_START_POINT){
-            player2.dy*=-1;
             player2.y=PADDLE_START_POINT;
           }
-          player2.y+=player2.dy;
+          //move paddle
+          if(clossestGameball.y!==(player2.y+player2.height/2)){
+                player2.dy=((clossestGameball.y-(player2.y+player2.height/2))>0?UPWARD_MOVE_ACCELARATION_PLAYER2:-1*DOWNWARD_MOVE_ACCELARATION_PLAYER2);
+                player2.y+=player2.dy;
+          }
         break;
       case "medium":
+        gameballs.forEach(function(gameball){
+          if(gameball.x>canvas.widht/2){
+            gameball.hasBeenTargeted=true;
+            var ytemp = (gameball.dy/gameball.dx)*(canvas.width-player2.width -gameball.x) + gameball.y;
+            if(ytemp<0||ytemp>canvas.width){
+              gameball.hasBeenTargeted=false;
+              return;
+            }
+            player2.targetYCordQueue.unshift(ytemp);
+          }
+        });
         break;
       case "hard":
         break;
@@ -455,13 +490,26 @@ $(document).ready(function() {
                       console.log("Moving DOWN Start");
                   }
                   if ( keycode ==  97) {
-                    PLAYER1_MOVEMENT_STATE = PLAYER1_MOVEMENT_MODIFIERS[(CURRENT_STATE++)%PLAYER1_MOVEMENT_MODIFIERS.length];
+                    CURRENT_STATE=(CURRENT_STATE+1)%PLAYER1_MOVEMENT_MODIFIERS.length;
                   }
                   if(keycode ==  98){
                     player1.height-=10;
                   }
                   if(keycode ==  99){
                     player1.height+=10;
+                  }
+                  if(keycode ==  100){
+                    var gameball={};
+                    var y = 200*Math.random()+30, x=200*Math.random()+30;
+                    gameball.x=x;
+                    gameball.dx=GAMEBALL_INITIAL_X_SPEED+20*Math.random();
+                    gameball.y=y;
+                    gameball.dy=GAMEBALL_INITIAL_Y_SPEED+20*Math.random();
+                    gameball.x1=x+5;
+                    gameball.y1=y+5;
+                    gameball.x2=x+10;
+                    gameball.y2=y+10;
+                    window.gameballs.unshift(gameball);
                   }
             }
         });
