@@ -1,8 +1,8 @@
 var DEBUG_MODE = true;
 var PADDLE_START_POINT = 20;
 var PADDLE_WIDTH = 20;
-var PADDLE_HEIGHT = 100;
-var PADDLE_END_POINT = 380;
+var PADDLE_HEIGHT = 200;
+var PADDLE_END_POINT = 480;
 var KEYCODE_W=119;
 var KEYCODE_S=115;
 var PLAYER1_DOWN_KEYCODE=KEYCODE_S;
@@ -31,7 +31,8 @@ var PLAYER1_MOVEMENT_MODIFIERS = [
     "RANDOM_NEGATIVE_ACCELARATION",
     "RANDOM_POSITIVE_ACCELARATION"
 ];
-var PLAYER1_MOVEMENT_STATE = PLAYER1_MOVEMENT_MODIFIERS[0];
+var CURRENT_STATE =0;
+var PLAYER1_MOVEMENT_STATE = PLAYER1_MOVEMENT_MODIFIERS[CURRENT_STATE];
 var REDERER_LOOP,LOGIC_LOOP;
 var LOGIC_LOOP_READY = true,RENDER_LOOP_READY = true;
 //Start Code
@@ -43,21 +44,6 @@ function startGame(){
     //load game images and start game afterwards
     console.log("Loading Game Images");
     loadGameImages(beginEngine);
-}
-//Reset all vars for newed game
-function resetVARS(){
-  if(REDERER_LOOP===null||LOGIC_LOOP===null){
-    console.log("Interval not created");
-    LOGIC_LOOP_READY = true;
-    RENDER_LOOP_READY= true;
-    return;
-  }
-  //Clear interval before attempting to restart loop
-  console.log("Clear interval");
-  clearInterval(REDERER_LOOP);
-  clearInterval(LOGIC_LOOP);
-  LOGIC_LOOP_READY = true;
-  RENDER_LOOP_READY= true;
 }
 //Begin Logic and Render loop
 function beginEngine(){
@@ -83,27 +69,58 @@ function  initializePlayers(){
   player1.dy=0;
   player1.width=PADDLE_WIDTH;
   player1.height=PADDLE_HEIGHT;
+  player1.score=0;
+  // Initialize player2
+  console.log("Initializing Player2");
+  window.player2={};
+  player2.y=PADDLE_START_POINT;
+  player2.dy=0;
+  player2.width=PADDLE_WIDTH;
+  player2.height=PADDLE_HEIGHT;
+  player2.score=0;
 }
 function  initializeBall(){
   // Initialize ball
   console.log("Initializing Ball1");
-  window.gameball={};
+  var gameball={};
   gameball.x=30;
   gameball.dx=GAMEBALL_INITIAL_X_SPEED;
   gameball.y=30;
   gameball.dy=GAMEBALL_INITIAL_Y_SPEED;
   gameball.x1=35;
-  gameball.dx1=gameball.dx;
   gameball.y1=35;
-  gameball.dy1=gameball.dy;
   gameball.x2=40;
-  gameball.dx2=gameball.dx1;
   gameball.y2=40;
-  gameball.dy2=gameball.dy1;
+
+  var gameball2={};
+  gameball2.x=130;
+  gameball2.dx=-GAMEBALL_INITIAL_X_SPEED;
+  gameball2.y=130;
+  gameball2.dy=-GAMEBALL_INITIAL_Y_SPEED;
+  gameball2.x1=135;
+  gameball2.y1=135;
+  gameball2.x2=140;
+  gameball2.y2=140;
+  window.gameballs = [gameball,gameball2];
+}
+//Reset all vars for newed game
+function resetVARS(){
+  if(REDERER_LOOP===null||LOGIC_LOOP===null){
+    console.log("Interval not created");
+    LOGIC_LOOP_READY = true;
+    RENDER_LOOP_READY= true;
+    return;
+  }
+  //Clear interval before attempting to restart loop
+  console.log("Clear interval");
+  clearInterval(REDERER_LOOP);
+  clearInterval(LOGIC_LOOP);
+  LOGIC_LOOP_READY = true;
+  RENDER_LOOP_READY= true;
 }
 function  loadGameImages(callback){
   //Horizontal walls load
-  if(window.horizontal_wall!==null&&window.ball_shadow_2!==null&&window.ball_shadow&&ball!==null&&window.soccer!==null&&window.paddle!==null&&window.side_wall!==null){
+  if(window.horizontal_wall!==null&&window.ball_shadow_2!==null&&window.ball_shadow&&ball!==null&&window.soccer!==null&&window.paddle!==null&&window.paddle_reversed!==null&&window.side_wall!==null){
       console.log("Images Already In Memory");
     callback();
   }
@@ -115,6 +132,9 @@ function  loadGameImages(callback){
   //Paddle walls load
   window.paddle = new Image();
   paddle.src = "images/paddle.png";
+  //Paddle walls load
+  window.paddle_reversed = new Image();
+  paddle_reversed.src = "images/paddle_reversed.png";
   //Soccer walls load
   window.soccer = new Image();
   soccer.src = "images/soccer.png";
@@ -134,12 +154,14 @@ function  loadGameImages(callback){
           $(ball).load(function() {
             $(ball_shadow).load(function() {
               $(ball_shadow_2).load(function() {
-                  //All game images are loaded
-                  console.log("Loaded all Images");
-                  try{
-                    console.log("Calling callback");
-                    callback();
-                  }catch(e){}
+                $(paddle_reversed).load(function() {
+                    //All game images are loaded
+                    console.log("Loaded all Images");
+                    try{
+                      console.log("Calling callback");
+                      callback();
+                    }catch(e){}
+                  });
               });
             });
           });
@@ -159,6 +181,7 @@ function movePlayer1Down(){
 function  renderLoop(redrawTimeInSeconds){
     console.log("Setting up render loop every "+ redrawTimeInSeconds);
     //var id = Math.random()*250+250;
+    //Handle deadlock
     while(!RENDER_LOOP_READY){
       resetVARS();
     }
@@ -166,25 +189,28 @@ function  renderLoop(redrawTimeInSeconds){
     RENDER_LOOP_READY= false;
     window.REDERER_LOOP = setInterval(function(){
       //console.log("Drawing frame / " +id );
-      var canvas = document.getElementById("myCanvas");
-      var ctx = canvas.getContext("2d");
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(soccer, 0, 0);
       ctx.drawImage(horizontal_wall, 0, 0);
-      ctx.drawImage(horizontal_wall, 0, 480);
-      ctx.drawImage(side_wall, 240, 20);
-      ctx.drawImage(side_wall, 485, 20);
+      ctx.drawImage(horizontal_wall, 0, canvas.width-20);
+      ctx.drawImage(side_wall, canvas.width/2-10, 20);
+      ctx.drawImage(paddle_reversed, canvas.width - PADDLE_WIDTH, 20);
       ctx.drawImage(paddle, 0, player1.y,player1.width,player1.height);
-      ctx.drawImage(ball_shadow_2, gameball.x2, gameball.y2);
-      ctx.drawImage(ball_shadow, gameball.x1, gameball.y1);
-      ctx.drawImage(ball, gameball.x, gameball.y);
+      gameballs.forEach(function(gameball){
+            ctx.drawImage(ball_shadow_2, gameball.x2, gameball.y2,10,10);
+            ctx.drawImage(ball_shadow, gameball.x1, gameball.y1,15,15);
+            ctx.drawImage(ball, gameball.x, gameball.y);
+      });
       if(DEBUG_MODE)
           render_vars();
     }, redrawTimeInSeconds);
 }
 function render_vars(){
+
   $('#myStats').html(
-    "<br/>UPWARD_MOVE_ACCELARATION_PLAYER1 =" +UPWARD_MOVE_ACCELARATION_PLAYER1
+    "<br/>Press \'s\' and \'w\' to move the paddle down and up respectively. Press \'a\' to switch player1 paddle mode, press \'c\' to Increase player size and press \'b\' to decrese size."
+    + "<br/>Player1 score =" + player1.score
+    + "<br/>UPWARD_MOVE_ACCELARATION_PLAYER1 =" +UPWARD_MOVE_ACCELARATION_PLAYER1
     + "<br/>DOWNWARD_MOVE_ACCELARATION_PLAYER1 =" +DOWNWARD_MOVE_ACCELARATION_PLAYER1
     + "<br/>PLAYER1_UPWARD_DEACCELARATE =" +PLAYER1_UPWARD_DEACCELARATE
     + "<br/>PLAYER1_DOWNWARD_DEACCELARATE =" +PLAYER1_DOWNWARD_DEACCELARATE
@@ -202,6 +228,7 @@ function render_vars(){
 function  logicLoop(updateLogicTimeInSeconds){
   console.log("Updating game loop logic every "+updateLogicTimeInSeconds);
   //var id = Math.random()*250;
+  //Handle deadlock
   while(!LOGIC_LOOP_READY){
     resetVARS();
   }
@@ -210,38 +237,38 @@ function  logicLoop(updateLogicTimeInSeconds){
   window.LOGIC_LOOP =  setInterval(function(){
         //console.log("Updating player one position / " + id);
         //Move ball and its shadow
-        gameball.y+=gameball.dy;
-        gameball.x+=gameball.dx;
-        gameball.y1+=gameball.dy1;
-        gameball.x1+=gameball.dx1;
-        gameball.y2+=gameball.dy2;
-        gameball.x2+=gameball.dx2;
-        gameball.dy1=gameball.dy;
-        gameball.dx1=gameball.dx;
-        gameball.dy2=gameball.dy1;
-        gameball.dx2=gameball.dx1;
-        //BAll collision detection
-        if(gameball.y <20){
-          gameball.y = 20;
-          gameball.dy*=-1;
-        } else
-        if(gameball.y >460){
-          gameball.y = 460;
-          gameball.dy*=-1;
-        } else
-        if(gameball.x > 460){
-          gameball.x = 460;
-          gameball.dx*=-1;
-        } else
-        if(gameball.x < player1.width && gameball.y >= player1.y && gameball.y <= player1.y+player1.height){
-          gameball.x = 20;
-          gameball.dx*=-1;
-        } else if(gameball.x < player1.width ) {
-          gameball.x = 250;
-          gameball.x1 = 250;
-          gameball.x2 = 250;
-          gameball.dx*=-1;
-        }
+        gameballs.forEach(function(gameball){
+          gameball.y+=gameball.dy;
+          gameball.x+=gameball.dx;
+          gameball.y1=gameball.y-5*(gameball.dy/Math.abs(gameball.dy));
+          gameball.x1=gameball.x-5*(gameball.dx/Math.abs(gameball.dx));
+          gameball.y2=gameball.y1-5*(gameball.dy/Math.abs(gameball.dy));
+          gameball.x2=gameball.x1-5*(gameball.dx/Math.abs(gameball.dx));
+          //BAll collision detection
+          if(gameball.y <20){
+            gameball.y = 20;
+            gameball.dy*=-1;
+          } else
+          if(gameball.y >canvas.height-40){
+            gameball.y = canvas.height-40;
+            gameball.dy*=-1;
+          } else
+          if(gameball.x > canvas.width-40){
+            gameball.x = canvas.width-40;
+            gameball.dx*=-1;
+          } else
+          if(gameball.x < player1.width && gameball.y >= player1.y && gameball.y <= player1.y+player1.height){
+            gameball.x = 20;
+            gameball.dx*=-1;
+            player1.score++;
+          } else if(gameball.x < player1.width ) {
+            gameball.x = canvas.width/2;
+            gameball.x1 = canvas.width/2;
+            gameball.x2 = canvas.width/2;
+            gameball.dx*=-1;
+            player1.score=0;
+          }
+        });
         switch(PLAYER1_MOVEMENT_STATE){
           case "ICY":
                 UPWARD_MOVE_ACCELARATION_PLAYER1=INITIAL_UPWARD_MOVE_ACCELARATION_PLAYER1;
@@ -304,9 +331,9 @@ function  logicLoop(updateLogicTimeInSeconds){
             player1.dy*=-1;
           else
               player1.dy=0;
-        }else if(player1.y>PADDLE_END_POINT){
+        }else if(player1.y>PADDLE_END_POINT-player1.height){
           window.HIT_EDGE=true;
-          player1.y=PADDLE_END_POINT;
+          player1.y=PADDLE_END_POINT-player1.height;
           if(ACCELARATION_INVERTION)
             player1.dy*=-1;
           else
@@ -340,8 +367,8 @@ function  logicLoop(updateLogicTimeInSeconds){
 $(document).ready(function() {
     console.log("Document Ready");
     //Draw menu screen
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
+    window.canvas = document.getElementById("myCanvas");
+    window.ctx = canvas.getContext("2d");
     var image = new Image();
     image.src = "images/pong.png";
     $(image).load(function() {
@@ -371,9 +398,18 @@ $(document).ready(function() {
                       console.log("Moving UP Start");
                   }
                   //Check move down
-                  if ( keycode ==  PLAYER1_DOWN_KEYCODE && player1.y <PADDLE_END_POINT) {
+                  if ( keycode ==  PLAYER1_DOWN_KEYCODE && player1.y <(PADDLE_END_POINT-player1.height)) {
                       movePlayer1Down();
                       console.log("Moving DOWN Start");
+                  }
+                  if ( keycode ==  97) {
+                    PLAYER1_MOVEMENT_STATE = PLAYER1_MOVEMENT_MODIFIERS[(CURRENT_STATE++)%PLAYER1_MOVEMENT_MODIFIERS.length];
+                  }
+                  if(keycode ==  98){
+                    player1.height-=10;
+                  }
+                  if(keycode ==  99){
+                    player1.height+=10;
                   }
             }
         });
