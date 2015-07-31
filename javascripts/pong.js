@@ -33,8 +33,15 @@ var PLAYER1_MOVEMENT_MODIFIERS = [
 ];
 var CURRENT_STATE =0;
 var PLAYER1_MOVEMENT_STATE = PLAYER1_MOVEMENT_MODIFIERS[CURRENT_STATE];
-var REDERER_LOOP,LOGIC_LOOP;
-var LOGIC_LOOP_READY = true,RENDER_LOOP_READY = true;
+var REDERER_LOOP,LOGIC_LOOP,AI_LOOP;
+var LOGIC_LOOP_READY = true,RENDER_LOOP_READY = true, AI_LOOP_READY = true;
+var AI_DIFICULTYS = [
+  "easy",
+  "medium",
+  "hard"
+];
+var CURRENT_AI_DIFICULTY = 0;
+var AI_DIFICULTY = AI_DIFICULTYS[CURRENT_AI_DIFICULTY];
 //Start Code
 function startGame(){
     console.log("Starting Game");
@@ -54,6 +61,9 @@ function beginEngine(){
   //start draw loop set how many drame persecond for game
   console.log("Start Logic Loop");
   logicLoop(100);
+  //start player2 AI
+  console.log("Start player2 AI");
+  aiLoop(AI_DIFICULTY,100);
 }
 function initializeGame(){
   initializePlayers();
@@ -70,11 +80,13 @@ function  initializePlayers(){
   player1.width=PADDLE_WIDTH;
   player1.height=PADDLE_HEIGHT;
   player1.score=0;
+  player1.x=0;
   // Initialize player2
   console.log("Initializing Player2");
   window.player2={};
   player2.y=PADDLE_START_POINT;
-  player2.dy=0;
+  player2.dy=1;
+  player2.x = canvas.width - PADDLE_WIDTH;
   player2.width=PADDLE_WIDTH;
   player2.height=PADDLE_HEIGHT;
   player2.score=0;
@@ -105,18 +117,21 @@ function  initializeBall(){
 }
 //Reset all vars for newed game
 function resetVARS(){
-  if(REDERER_LOOP===null||LOGIC_LOOP===null){
+  if(REDERER_LOOP===null||LOGIC_LOOP===null||AI_LOOP===null){
     console.log("Interval not created");
     LOGIC_LOOP_READY = true;
     RENDER_LOOP_READY= true;
+    AI_LOOP_READY = true;
     return;
   }
   //Clear interval before attempting to restart loop
   console.log("Clear interval");
   clearInterval(REDERER_LOOP);
   clearInterval(LOGIC_LOOP);
+  clearInterval(AI_LOOP);
   LOGIC_LOOP_READY = true;
   RENDER_LOOP_READY= true;
+  AI_LOOP_READY = true;
 }
 function  loadGameImages(callback){
   //Horizontal walls load
@@ -194,8 +209,8 @@ function  renderLoop(redrawTimeInSeconds){
       ctx.drawImage(horizontal_wall, 0, 0);
       ctx.drawImage(horizontal_wall, 0, canvas.width-20);
       ctx.drawImage(side_wall, canvas.width/2-10, 20);
-      ctx.drawImage(paddle_reversed, canvas.width - PADDLE_WIDTH, 20);
-      ctx.drawImage(paddle, 0, player1.y,player1.width,player1.height);
+      ctx.drawImage(paddle_reversed, player2.x, player2.y,player2.width,player2.height);
+      ctx.drawImage(paddle, player1.x, player1.y,player1.width,player1.height);
       gameballs.forEach(function(gameball){
             ctx.drawImage(ball_shadow_2, gameball.x2, gameball.y2,10,10);
             ctx.drawImage(ball_shadow, gameball.x1, gameball.y1,15,15);
@@ -236,8 +251,8 @@ function  logicLoop(updateLogicTimeInSeconds){
   LOGIC_LOOP_READY = false;
   window.LOGIC_LOOP =  setInterval(function(){
         //console.log("Updating player one position / " + id);
-        //Move ball and its shadow
         gameballs.forEach(function(gameball){
+          //Move ball and its shadow
           gameball.y+=gameball.dy;
           gameball.x+=gameball.dx;
           gameball.y1=gameball.y-5*(gameball.dy/Math.abs(gameball.dy));
@@ -253,22 +268,28 @@ function  logicLoop(updateLogicTimeInSeconds){
             gameball.y = canvas.height-40;
             gameball.dy*=-1;
           } else
-          if(gameball.x > canvas.width-40){
-            gameball.x = canvas.width-40;
+          if(gameball.x > player2.x && gameball.y >= player2.y &&gameball.y <= player2.y+player2.height ){
+            gameball.x = canvas.width-player2.width-player1.width;
             gameball.dx*=-1;
           } else
           if(gameball.x < player1.width && gameball.y >= player1.y && gameball.y <= player1.y+player1.height){
             gameball.x = 20;
             gameball.dx*=-1;
-            player1.score++;
           } else if(gameball.x < player1.width ) {
             gameball.x = canvas.width/2;
             gameball.x1 = canvas.width/2;
             gameball.x2 = canvas.width/2;
             gameball.dx*=-1;
-            player1.score=0;
+            player2.score++;
+          } else if(gameball.x > player2.x ) {
+            gameball.x = canvas.width/2;
+            gameball.x1 = canvas.width/2;
+            gameball.x2 = canvas.width/2;
+            gameball.dx*=-1;
+            player1.score++;
           }
         });
+        //Set configurations for controls
         switch(PLAYER1_MOVEMENT_STATE){
           case "ICY":
                 UPWARD_MOVE_ACCELARATION_PLAYER1=INITIAL_UPWARD_MOVE_ACCELARATION_PLAYER1;
@@ -363,6 +384,37 @@ function  logicLoop(updateLogicTimeInSeconds){
           }
         }
     }, updateLogicTimeInSeconds);
+}
+function aiLoop(aiDificulty,updateAITimeInSeconds){
+  console.log("Updating ai loop logic every "+updateAITimeInSeconds);
+  //var id = Math.random()*250;
+  //Handle deadlock
+  while(!AI_LOOP_READY){
+    resetVARS();
+  }
+  //re-do Logic for AI
+  AI_LOOP_READY = false;
+  window.AI_LOOP =  setInterval(function(){
+    switch (aiDificulty) {
+      case "easy":
+          if(player2.y>PADDLE_END_POINT-player2.height){
+            player2.dy*=-1;
+            player2.y = PADDLE_END_POINT-player2.height;
+          }
+          if(player2.y<PADDLE_START_POINT){
+            player2.dy*=-1;
+            player2.y=PADDLE_START_POINT;
+          }
+          player2.y+=player2.dy;
+        break;
+      case "medium":
+        break;
+      case "hard":
+        break;
+      default:
+
+    }
+  }, updateAITimeInSeconds);
 }
 $(document).ready(function() {
     console.log("Document Ready");
