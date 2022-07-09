@@ -1,22 +1,266 @@
 <html>
+
 <head>
-  <link rel="stylesheet" href="stylesheets/comingsoon.css">
-  <script src="javascripts/ajax.googleapis.com_ajax_libs_jquery_1_jquery.min.js"></script>
-  <script src="javascripts/pong.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
 </head>
-<body  style="background-color:#E6E6FA;width=100%;height:100%">
-  <div class="center" >
-    <div class="overlay">
-      <canvas style="position:absolute;left:0;top:0" id="myCanvas" width="500px" height="500px" >
-                <!-- Insert fallback content here -->
-      </canvas>
-      <div class="myStats" id="myStats" >
-                <!-- Insert fallback content here -->
+
+<body>
+  <div class="resume">
+    <div class="base">
+      <div class="profile">
+        <div class="photo">
+          <img src="https://avatars.githubusercontent.com/u/1129269?v=4" />
+          <!-- <i class="fas fa-rocket"></i> -->
+        </div>
+        <div class="info">
+          <h1 class="name">Antonio Ahmed Tapia Maldonado</h1>
+          <h2 class="job">Computer Engineer</h2>
+        </div>
+      </div>
+      <div class="about">
+        <h3>About Me</h3>
+        <p>
+          Hi, my name is Antonio Tapia and I adopted the brand ApolionGames for all the games I make. Below are the most
+          note worthy titles I have developed.
+        </p>
+      </div>
+      <div class="contact">
+        <h3>Contact Me</h3>
+        <div class="address"><a href="https://goo.gl/maps/zRDcUTjysgC9TeXA8"><i
+              class="fas fa-map-marker"></i><span>Florida / Puerto Rico</span></a>
+        </div>
+        <div class="email"><a href="mailto:antonio@apolion.games"><i class="fas fa-envelope"></i><span>antonio at
+              apolion.games</span></a></div>
+        <div class="website"><a href="https://apolion.games" target="_blank"> <i class="fas fa-home"></i><span>Apolion
+              Games</span></a></div>
+      </div>
+      <div class="follow">
+        <h3>Follow Me</h3>
+        <div class="box">
+          <a href="https://www.linkedin.com/in/apo45ty/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://codepen.io/apo45ty" target="_blank"><i class="fab fa-codepen"></i></a>
+          <a href="https://github.com/Apo45ty" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://apo45ty.itch.io" target="_blank"><i class="fab fa-itch-io"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="func">
+      <div class="row">
+        <div class="work col-sm">
+          <h3><i class="fa fa-briefcase"></i>Experience</h3>
+          <ul>
+            <li><span>Software Developer 2</span> <small>at Wovenware - San Juan, Puerto Rico</small><small> March 2021
+                - Present</small>
+              <a class="detailsText" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                aria-expanded="false" aria-controls="collapseExample">
+                Click here for details
+              </a>
+              <div class="collapse " id="collapseExample">
+                <div class="card card-body collapseText">
+                  <small>⋅ Worked on a Java/Spring/Thrift/Liquidbase/Temporal based microservice projects.
+                  </small><small>⋅ Worked with vagrant and kubernetes to deploy the microservice and its components.
+                  </small><small>⋅ Worked under the git open source workflow.
+                  </small><small>⋅ Wrote automated test cases on the Groovy programming language for the ReadyAPI
+                    testing platform.
+                  </small><small>⋅ Tested the whole life cycle of an application from inception to End to End testing.
+                  </small>
+                </div>
+              </div>
+            </li>
+            <li><span>Systems Engineer</span> <small>at Infosys Limited - Aguadilla, Puerto Rico</small><small> December
+                2018 - March 2021Z</small>
+              <a class="detailsText" data-bs-toggle="collapse" href="#collapseExample2" role="button"
+                aria-expanded="false" aria-controls="collapseExample">
+                Click here for details
+              </a>
+              <div class="collapse " id="collapseExample2">
+                <div class="card card-body collapseText">
+                  <small>⋅ Work on testing: manual system testing and test automation tools like Selenium.
+                  </small><small>⋅ Utilized Microsoft SQL Manager Studio (Transact SQL) to validate tests and data.
+                  </small><small>⋅ Work with the Agile methodology “Scrum” on a .Net development framework.
+                  </small><small>⋅ Designed automated test cases in Infosys' proprietary framework.
+                  </small>
+                </div>
+              </div>
+            </li>
+            <li><span>Software Developer Engineer in Test</span><small> at Revature - Reston, Virginia</small><small>
+                April 2018 - August 2018</small>
+              <a class="detailsText" data-bs-toggle="collapse" href="#collapseExample3" role="button"
+                aria-expanded="false" aria-controls="collapseExample">
+                Click here for details
+              </a>
+              <div class="collapse " id="collapseExample3">
+                <div class="card card-body collapseText"><small>⋅ Was trained in Testing frameworks such as Selenium,
+                    Cucumber and Jasmine.
+                  </small><small>⋅ Designed and implemented a project with Spring boot backend and Angular 2 front-end,
+                    then I worked with AWS to host my
+                    applications.
+                  </small><small>⋅ Helped design and implement a group project written in a Java backend that integrated
+                    Selenium with Spring boot frameworks.
+                  </small>
+                </div>
+              </div>
+            </li>
+            <li><span>Java Programming Teacher and Mentor</span><small> at Croem – Puerto Rico </small><small>January
+                2014 - May 2014</small>
+              <a class="detailsText" data-bs-toggle="collapse" href="#collapseExample4" role="button"
+                aria-expanded="false" aria-controls="collapseExample">
+                Click here for details
+              </a>
+              <div class="collapse " id="collapseExample4">
+                <div class="card card-body collapseText"><small>⋅ Served as teacher for the Java Programming Language
+                    course curriculum, sponsored by AGMUS.
+                  </small><small>⋅ Mentored students on the final research presentations at Croem.
+                  </small>
+                </div>
+              </div>
+            </li>
+            <li><span>Teacher’s Aid for Advanced Programming</span><small> at University of Puerto Rico RUM - Puerto
+                Rico </small><small>January 2014 - May 2014</small>
+              <a class="detailsText" data-bs-toggle="collapse" href="#collapseExample5" role="button"
+                aria-expanded="false" aria-controls="collapseExample">
+                Click here for details
+              </a>
+              <div class="collapse " id="collapseExample5">
+                <div class="card card-body collapseText">
+                  <small>⋅ Instruction of SDLC, QA code review and software architecture design.
+                  </small><small>⋅ Course material and laboratories were taught in the Java programming language.
+                  </small><small>⋅ Implementation of practical (real life scenarios) laboratory exercises for students,
+                    and
+                    staff.
+                  </small><small>⋅ Served as a mentor for students taking the course.
+                  </small>
+                </div>
+              </div>
+            </li>
+            <li><span></span>Research Assistant</span><small> at LSIIT of the University of Strasbourg – France
+              </small><small>June 2012 - August 2012</small>
+              <a class="detailsText" data-bs-toggle="collapse" href="#collapseExample6" role="button"
+                aria-expanded="false" aria-controls="collapseExample">
+                Click here for details
+              </a>
+              <div class="collapse " id="collapseExample6">
+                <div class="card card-body collapseText"><small>⋅ Developed a plug-in written in Java for version four
+                    of the
+                    Protégé ontology visualizing and interpreting software.
+                  </small><small>⋅ Parsed files in the Attribute Relation File Format and learned about hyper-spectral
+                    imaging
+                    and remote sensing.
+                  </small><small>⋅ Attended the 2012 SACNAS conference in Seattle, Washington and presented this
+                    research.
+                  </small>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="edu col-sm">
+          <h3><i class="fa fa-graduation-cap"></i>Education</h3>
+          <ul>
+            <li><span>Master of Science in Computer Engineering (M.S.Cp.E)</span><br>from Polytechnic University of
+              Puerto
+              Rico, San Juan Campus</span><small>November 2020 - July 2025 | GPA: 3.50/4.0</small></li>
+            <li><span>Bachelor of Science in Computer Engineering</span><small>from University of Puerto Rico, Mayagüez
+                Campus</small><small>Graduated in June 2018 | Mayor GPA: 3.02/4.0</small></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="skills-prog">
+          <h3><i class="fas fa-code"></i>Programming Skills</h3>
+          <ul>
+            <li data-percent="95"><span>HTML5</span>
+              <div class="skills-bar">
+                <div class="bar"></div>
+              </div>
+            </li>
+            <li data-percent="90"><span>CSS3 & SCSS</span>
+              <div class="skills-bar">
+                <div class="bar"></div>
+              </div>
+            </li>
+            <li data-percent="60"><span>JavaScript</span>
+              <div class="skills-bar">
+                <div class="bar"></div>
+              </div>
+            </li>
+            <li data-percent="50"><span>jQuery</span>
+              <div class="skills-bar">
+                <div class="bar"></div>
+              </div>
+            </li>
+            <li data-percent="40"><span>JSON</span>
+              <div class="skills-bar">
+                <div class="bar"></div>
+              </div>
+            </li>
+            <li data-percent="55"><span>PHP</span>
+              <div class="skills-bar">
+                <div class="bar"></div>
+              </div>
+            </li>
+            <li data-percent="40"><span>MySQL</span>
+              <div class="skills-bar">
+                <div class="bar"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="skills-soft">
+        <h3><i class="fas fa-bezier-curve"></i>Software Skills</h3>
+        <ul>
+          <li data-percent="90">
+            <svg viewbox="0 0 100 100">
+              <circle cx="50" cy="50" r="45"></circle>
+              <circle class="cbar" cx="50" cy="50" r="45"></circle>
+            </svg><span>Illustrator</span><small></small>
+          </li>
+          <li data-percent="75">
+            <svg viewbox="0 0 100 100">
+              <circle cx="50" cy="50" r="45"></circle>
+              <circle class="cbar" cx="50" cy="50" r="45"></circle>
+            </svg><span>Photoshop</span><small></small>
+          </li>
+          <li data-percent="85">
+            <svg viewbox="0 0 100 100">
+              <circle cx="50" cy="50" r="45"></circle>
+              <circle class="cbar" cx="50" cy="50" r="45"></circle>
+            </svg><span>InDesign</span><small></small>
+          </li>
+          <li data-percent="65">
+            <svg viewbox="0 0 100 100">
+              <circle cx="50" cy="50" r="45"></circle>
+              <circle class="cbar" cx="50" cy="50" r="45"></circle>
+            </svg><span>Dreamweaver</span><small></small>
+          </li>
+        </ul>
+      </div>
+      <div class="interests">
+        <h3><i class="fas fa-star"></i>Interests</h3>
+        <div class="interests-items">
+          <div class="art"><i class="fas fa-palette"></i><span>Art</span></div>
+          <div class="art"><i class="fas fa-book"></i><span>Books</span></div>
+          <div class="movies"><i class="fas fa-film"></i><span>Movies</span></div>
+          <div class="music"><i class="fas fa-headphones"></i><span>Music</span></div>
+          <div class="games"><i class="fas fa-gamepad"></i><span>Games</span></div>
+        </div>
       </div>
     </div>
   </div>
-  <script>
-
-  </script>
+  <script src="script.js"></script>
 </body>
+
 </html>
