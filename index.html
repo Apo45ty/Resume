@@ -24,6 +24,7 @@
 
     .section {
 
+      font-size: 22px;
       display: flex;
       flex-direction: column;
 
@@ -55,12 +56,12 @@
 
               .myCircle {
                 flex: 2;
-                margin-right: -8;
+                margin-right: -15;
                 margin-top: 12;
-                margin-bottom: -20;
+                margin-bottom: -40;
                 border-radius: 100%;
                 display: inline-block;
-                width: 35px;
+                width: 30px;
                 background-color: black;
                 height: 15px;
               }
@@ -118,6 +119,7 @@
   </div>
   <div class="section">
     <label class="sectionLabel">Experience & Education</label>
+    <div name="expAndEd"></div>
     <div class="sectionBody">
 
       <div class="experience">
@@ -458,66 +460,84 @@
 
       </div>
     </div>
-    <div class="section">
-      <label class="sectionLabel">Cerifications</label>
-      <div class="sectionBody">
-        Oracle Certified Associate, Java SE 8 Programmer October 2022
-      </div>
+  </div>
+  <div class="section">
+    <label class="sectionLabel">Cerifications</label>
+    <div class="sectionBody">
+      Oracle Certified Associate, Java SE 8 Programmer October 2022
     </div>
-    <div class="section">
-      <label class="sectionLabel">Interest</label>
-      <div class="sectionBody">
-        Machine Learning,Game Jams, Game Development, Competitive Programming and Simulations,Temporal
-      </div>
+  </div>
+  <div class="section">
+    <label class="sectionLabel">Interest</label>
+    <div class="sectionBody">
+      Machine Learning,Game Jams, Game Development, Competitive Programming and Simulations,Temporal
     </div>
-    <script>
+  </div>
+  <script>
 
 
-      // expTitle
-      const ctx = document.getElementById('myChart');
+    // expTitle
+    const ctx = document.getElementById('myChart');
 
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Java', 'Python', 'C#', 'C', 'C++', 'Javascript', 'HTML5', 'CSS', 'SQL', 'TSQL', 'PGSQL', 'PLSQL', 'Groovy', 'Swift', 'Octave', 'GDScript'],
-          datasets: [{
-            label: 'Years of experience',
-            data: [10, 3, 1, 1, 1, 5, 15, 1, 5, 1, 1, 1, 1, 1, 1, 1],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
+    let chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Java', 'Python', 'C#', 'C', 'C++', 'Javascript', 'HTML5', 'CSS', 'SQL', 'TSQL', 'PGSQL', 'PLSQL', 'Groovy', 'Swift', 'Octave', 'GDScript'],
+        datasets: [{
+          label: 'Years of experience',
+          data: [10, 3, 1, 1, 1, 5, 15, 1, 5, 1, 1, 1, 1, 1, 1, 1],
+          borderWidth: 1,
+          backgroundColor: "rgba(0,0,0,1)",
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
           }
         }
-      });
-      var selectedObject = null;
-      function onMouseOver(e){
-        let body = e.srcElement.parentElement.querySelectorAll(".expBody");
-        if(body[0]){
-          console.log(body)
-          if(selectedObject){
-            selectedObject.innerHTML = selectedObject.innerText.replace("->","");
-            selectedObject.parentElement.querySelectorAll(".expBody")[0].style.display = "none";
-          }
-          body[0].style.display = "block";
-          selectedObject = e.srcElement;
-          selectedObject.innerHTML = "->"+e.srcElement.innerText;
+      }
+    });
+    var selectedObject = null;
+    function onMouseOver(e) {
+      let body = e.srcElement.parentElement.querySelectorAll(".expBody");
+      if (body[0]) {
+        if (selectedObject) {
+          selectedObject.innerHTML = selectedObject.innerText.replace("->", "");
+          selectedObject.parentElement.querySelectorAll(".expBody")[0].style.display = "none";
         }
-        // display: block;
-      };
-      let collection = document.querySelectorAll(".expTitle");
-      collection.forEach(function(element) {
-        element.addEventListener("mouseover", onMouseOver);
-      })
-      selectedObject=collection[1];
-      selectedObject.parentElement.querySelectorAll(".expBody")[0].style.display = "block";
-      selectedObject.innerHTML = "->"+collection[1].innerHTML;
+        body[0].style.display = "block";
+        selectedObject = e.srcElement;
+        selectedObject.innerHTML = "->" + e.srcElement.innerText;
+      }
+      // display: block;
+    };
+    let collection = document.querySelectorAll(".expTitle");
+    collection.forEach(function (element) {
+      element.addEventListener("mouseover", onMouseOver);
+    })
+    selectedObject = collection[1];
+    selectedObject.parentElement.querySelectorAll(".expBody")[0].style.display = "block";
+    selectedObject.innerHTML = "->" + collection[1].innerHTML;
 
-</script>
+    let hoverSection = document.querySelectorAll("[name='expAndEd']")[0];
+    let hoverSectionHTML=hoverSection.innerHTML;
+    fadeTarget = hoverSection;
+    hoverSection.innerHTML = "Hover Over experiences to see the details!"
+    var fadeEffect = setInterval(function () {
+      if (!fadeTarget.style.opacity) {
+          fadeTarget.style.opacity = 1;
+      }
+      if (fadeTarget.style.opacity > 0) {
+          fadeTarget.style.opacity -= 0.1;
+      } else {
+          fadeTarget.style.display = "none"
+          clearInterval(fadeEffect);
+      }
+    }, 200);
+  
+
+  </script>
 </body>
 
 </html>
