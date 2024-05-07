@@ -429,27 +429,27 @@
   <div class="section">
     <label class="sectionLabel">Skills</label>
     <div class="sectionBody">
-      <div class="underText">
+      <div class="underText" style="padding-top: 10;">
         Entreprenurial Skills
       </div>
       <div class="entSkills">
         Visual Studio Code, Eclipse, Bash/Shell, MS Office (Word, PowerPoint), Git, Unity, Blender,Jira,
         Godot,Vagrant,Android Studio
       </div>
-      <div class="underText">
+      <div class="underText" style="padding-top: 5;">
         Technical Skills
       </div>
 
-      <div class="techSkills">
+      <div class="techSkills" style="padding-top: 10;">
         <div class="techTools" style="padding-left: 20;">
-          <div class="underText">
+          <div class="underText" style="padding-top: 10;">
             Familiarity with the following tools:
           </div>
-          <div class="toolDiv">
+          <div class="toolDiv" >
             Temporal (1 year),Angular 2(2 years), Thrift(1 year), ASP.NET(<1 year), React Native(<2 year), LibGDX(2
               years), Allegro(1year),Spring(3 years), Hibernate(3 years) Java EE(2 years), JQuery (1 year), JQuery
               Mobile (<1 year) </div>
-              <div class="underText">
+              <div class="underText"  style="padding-top: 10;">
                 Familiarity with the following programming languages:
               </div>
               <div class="plDiv">
@@ -482,10 +482,10 @@
     let chart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Java', 'Python', 'C#', 'C', 'C++', 'Javascript', 'HTML5', 'CSS', 'SQL', 'TSQL', 'PGSQL', 'PLSQL', 'Groovy', 'Swift', 'Octave', 'GDScript'],
+        labels: ['HTML5', 'Java', 'Javascript', 'SQL', 'Python', 'C#', 'C', 'C++', 'CSS',  'TSQL', 'PGSQL', 'PLSQL', 'Groovy', 'Swift', 'Octave', 'GDScript'],
         datasets: [{
           label: 'Years of experience',
-          data: [10, 3, 1, 1, 1, 5, 15, 1, 5, 1, 1, 1, 1, 1, 1, 1],
+          data: [15, 10, 5, 5, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           borderWidth: 1,
           backgroundColor: "rgba(0,0,0,1)",
         }]
@@ -510,34 +510,35 @@
         body[0].style.display = "block";
         selectedObject = e.srcElement;
         selectedObject.innerHTML = "->" + e.srcElement.innerText;
+       
       }
       // display: block;
     };
     let collection = document.querySelectorAll(".expTitle");
     collection.forEach(function (element) {
       element.addEventListener("mouseover", onMouseOver);
-      element.addEventListener("touchend", onMouseOver);
+      element.addEventListener("mouseup", onMouseOver);
     })
     selectedObject = collection[1];
     selectedObject.parentElement.querySelectorAll(".expBody")[0].style.display = "block";
     selectedObject.innerHTML = "->" + collection[1].innerHTML;
 
     let hoverSection = document.querySelectorAll("[name='expAndEd']")[0];
-    let hoverSectionHTML=hoverSection.innerHTML;
+    let hoverSectionHTML = hoverSection.innerHTML;
     fadeTarget = hoverSection;
     hoverSection.innerHTML = "Hover Over experiences to see the details!"
     var fadeEffect = setInterval(function () {
       if (!fadeTarget.style.opacity) {
-          fadeTarget.style.opacity = 1;
+        fadeTarget.style.opacity = 1;
       }
       if (fadeTarget.style.opacity > 0) {
-          fadeTarget.style.opacity -= 0.05;
+        fadeTarget.style.opacity -= 0.05;
       } else {
-          fadeTarget.style.display = "none"
-          clearInterval(fadeEffect);
+        fadeTarget.style.display = "none"
+        clearInterval(fadeEffect);
       }
     }, 100);
-  
+
 
   </script>
 </body>
