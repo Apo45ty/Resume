@@ -517,7 +517,7 @@
     let collection = document.querySelectorAll(".expTitle");
     collection.forEach(function (element) {
       element.addEventListener("mouseover", onMouseOver);
-      element.addEventListener("mouseup", onMouseOver);
+      element.addEventListener("click", onMouseOver);
     })
     selectedObject = collection[1];
     selectedObject.parentElement.querySelectorAll(".expBody")[0].style.display = "block";
