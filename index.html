@@ -4,6 +4,10 @@
   <title>Resume</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
     .header {
       color: black;
       font-size: 40px;
@@ -70,6 +74,7 @@
             }
 
             .expBody {
+              animation: fadeIn 1s;
               display: none;
             }
           }
@@ -510,7 +515,18 @@
         body[0].style.display = "block";
         selectedObject = e.srcElement;
         selectedObject.innerHTML = "->" + e.srcElement.innerText;
-       
+        let collection2 = document.querySelectorAll(".expTitle");
+        collection2.forEach(function (element) {
+          element.removeEventListener("mouseenter", onMouseOver);
+          element.removeEventListener("click", onMouseOver);
+        })
+        setTimeout(function(){
+          let collection3 = document.querySelectorAll(".expTitle");
+          collection3.forEach(function (element) {
+            element.addEventListener("mouseenter", onMouseOver);
+            element.addEventListener("click", onMouseOver);
+          })
+        },350)
       }
       // display: block;
     };
