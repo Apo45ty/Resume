@@ -1,554 +1,124 @@
 <html>
-
 <head>
-  <title>Resume</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    @keyframes fadeIn {
-      0% { opacity: 0; color: red;}
-      100% { opacity: 1; color :black;}
-    }
-    .header {
-      color: black;
-      font-size: 40px;
-      text-align: center;
-    }
-
-    .address {
-      color: black;
-      font-size: 22px;
-      text-align: center;
-    }
-
-    .contact {
-      color: black;
-      font-size: 20px;
-      text-align: center;
-    }
-
-    .section {
-
-      font-size: 22px;
-      display: flex;
-      flex-direction: column;
-
-      .sectionLabel {
-        font-weight: bold;
-        border-style: solid;
-        border-width: 5px;
-        flex: 1;
-      }
-
-      .sectionBody {
-        flex: 1;
-
-        .experience {
-          display: flex;
-          flex: 1;
-          flex-direction: row;
-
-          .entry {
-            margin-left: 20;
-            flex: 7;
-
-            .expTitle {
-              display: flex;
-
-              .text {
-                flex: 100;
-              }
-
-              .myCircle {
-                /* flex: 2;
-                margin-right: -15;
-                margin-top: 12;
-                margin-bottom: -40;
-                border-radius: 100%;
-                display: inline-block;
-                width: 30px;
-                background-color: black;
-                height: 15px; */
-              }
-
-              border-bottom: 3px solid black;
-            }
-
-            .expBody {
-              animation: fadeIn 1s;
-              display: none;
-            }
-          }
-
-
-          .timeline {
-
-            border-bottom: 3px dashed black;
-            display: flex;
-            flex: 2;
-
-            .drawing {
-              border-left: 5px solid black;
-              display: flex;
-              flex: 1;
-            }
-
-            .text {
-              flex: 50;
-              text-align: right;
-            }
-          }
-        }
-      }
-
-      .objective {
-        text-align: center;
-      }
-
-      .underText {
-        border-bottom: 3px solid black;
-      }
-    }
-  </style>
+  <title>Apolion Games: Antonio's Resume</title>
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
-
-<body>
-  <div class="header">Antonio A. Tapia Maldonado</div>
-  <div class="address">2525 SW Halissee Street, Port Saint Lucie Florida 34953</div>
-  <div class="contact"><b>Phone:</b> 939-788-1579 <b>Email:</b> <u>antonio.tapia.maldonado@gmail.com</u> <b>Webpage:</b>
-    <u>https://apolion.games</u>
-  </div>
-  <div class="section">
-    <label class="sectionLabel">Objective</label>
-    <div class="sectionBody objective">
-      To obtain a full-time position in a field related to software development which offers key participation,
-      immediate challenges and career opportunities.
+<body style="height: 100%;width: 100%;">
+  <div class="main">
+    <div class="name">
+      <p>Antonio A. Tapia Maldonado</p>
     </div>
-  </div>
-  <div class="section">
-    <label class="sectionLabel">Experience & Education</label>
-    <div name="expAndEd" style="font-size: 50;background-color: black;color: white;"></div>
-    <div class="sectionBody">
-
-      <div class="experience">
-        <div class="entry" style="padding-bottom: 20;padding-top: 20;">
-          <div class="expTitle" style="border-bottom: 0;">
-            <div class="text" style="text-align: right; ">
-              <div style="text-align: right; border-bottom: 3px solid black;display: inline;">
-                Graduating Master of Science in Computer Engineering (M.S.Cp.E) at PUPR
-              </div>
-            </div>
-            <div class="myCircle"></div>
-          </div>
-        </div>
-
-        <div class="timeline">
-          <div class="drawing">
-          </div>
-          <div class="text" style="text-align: left;">
-            <br />July 2025
-          </div>
-        </div>
-      </div>
-      <div class="experience">
-        <div class="entry">
-          <div class="expTitle">
-            <div class="text">
-              Software Developer 2 at Wovenware - San Juan, Puerto Rico
-            </div>
-            <div class="myCircle"></div>
-          </div>
-          <div class="expBody">
-            <ul>
-              <li>Worked with vagrant and kubernetes to deploy the microservice and its components.
-              </li>
-              <li>Worked under the git open source workflow.
-              </li>
-              <li>Developed React/Redux components for existing code base.
-              </li>
-              <li>Tested the whole life cycle of an application from inception to End to End testing.
-              </li>
-              <li>Developed AWS Lambda(serverless) services
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline">
-          <div class="drawing">
-          </div>
-          <div class="text">
-            March 2021 - February 26 2024
-          </div>
-        </div>
-      </div>
-      <div class="experience">
-        <div class="entry">
-          <div class="expTitle">
-            <div class="text">
-              Systems Engineer at Infosys Limited - Aguadilla, Puerto Rico
-            </div>
-            <div class="myCircle"></div>
-          </div>
-          <div class="expBody">
-            <ul>
-              <li>Utilized Microsoft SQL Manager Studio (Transact SQL) to validate tests and data.
-              </li>
-              <li>Work with the Agile methodology “Scrum” on a .Net development framework.
-              </li>
-              <li>Designed automated test cases in Infosys' proprietary framework.
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline">
-          <div class="drawing">
-          </div>
-          <div class="text">
-            December 2018 - March 2021
-          </div>
-        </div>
-      </div>
-      <div class="experience">
-        <div class="entry">
-          <div class="expTitle">
-            <div class="text">
-              Software Engineer in private contract - Aguadilla, Puerto Rico
-            </div>
-            <div class="myCircle"></div>
-          </div>
-          <div class="expBody">
-            <ul>
-              <li>Worked with pure React Native(No Expo) to refine and add front-end features to app
-              </li>
-              <li>Worked with Python Flask/Plaid Api/Dwolla Api to add features to the back-end to app
-              </li>
-              <li>Develop triggers and stored procedures in PL/pgSQL
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline">
-          <div class="drawing">
-          </div>
-          <div class="text">
-            January 2020 - May 2020
-          </div>
-        </div>
-      </div>
-      <div class="experience">
-        <div class="entry">
-          <div class="expTitle">
-            <div class="text">
-              Software Developer Engineer in Test at Revature - Reston, Virginia
-            </div>
-            <div class="myCircle"></div>
-          </div>
-          <div class="expBody">
-            <ul>
-              <li>Was trained in Testing frameworks such as Selenium, Cucumber and Jasmine.
-              </li>
-              <li>Designed and implemented a project with Spring boot backend and Angular 2 front-end, then I worked
-                with AWS to
-                host my applications.
-              </li>
-              <li>Helped design and implement a group project written in a Java backend that integrated Selenium with
-                Spring boot
-                frameworks.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline">
-          <div class="drawing">
-          </div>
-          <div class="text">
-            April 2018 - August 2018
-          </div>
-        </div>
-      </div>
-
-      <div class="experience">
-        <div class="entry" style="padding-bottom: 20;padding-top: 20;">
-          <div class="expTitle" style="border-bottom: 0;">
-            <div class="text" style="text-align: right; ">
-              <div style="text-align: right; border-bottom: 3px solid black;display: inline;">
-                Graduated Bachellor's of Science in Computer Engineering at UPRM
-              </div>
-            </div>
-            <div class="myCircle"></div>
-          </div>
-        </div>
-
-        <div class="timeline">
-          <div class="drawing">
-          </div>
-          <div class="text" style="text-align: left;">
-            <br />July 2018
-          </div>
-        </div>
-      </div>
-
-      <div class="experience">
-        <div class="entry">
-          <div class="expTitle">
-            <div class="text">
-              Teacher’s Aid for Advanced Programming at University of Puerto Rico RUM
-            </div>
-            <div class="myCircle"></div>
-          </div>
-          <div class="expBody">
-            <ul>
-              <li>Instruction of SDLC, QA code review and software architecture design.
-              </li>
-              <li>Course material and laboratories were taught in the Java programming language.
-              </li>
-              <li>Implementation of practical (real life scenarios) laboratory exercises for students, and staff.
-              </li>
-              <li>Served as a mentor for students taking the course.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline">
-          <div class="drawing">
-          </div>
-          <div class="text">
-            January 2014 - May 2014
-          </div>
-        </div>
-      </div>
-      <div class="experience">
-        <div class="entry">
-          <div class="expTitle">
-            <div class="text">
-              Java Programming Teacher and Mentor at Croem – Puerto Rico
-            </div>
-            <div class="myCircle"></div>
-          </div>
-          <div class="expBody">
-            <ul>
-              <li>Served as teacher for the Java Programming Language course curriculum, sponsored by AGMUS.
-              </li>
-              <li>Mentored students on the final research presentations at Croem.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline">
-          <div class="drawing">
-          </div>
-          <div class="text">
-            January 2014 - May 2014
-          </div>
-        </div>
-      </div>
-      <div class="experience">
-        <div class="entry">
-          <div class="expTitle">
-            <div class="text">
-              Software Development Intern at Cloud Elements - Boulder, Colorado
-            </div>
-            <div class="myCircle"></div>
-          </div>
-          <div class="expBody">
-            <ul>
-              <li>Worked with javascript libraries for calling rest apis.
-              </li>
-              <li>Got hands on experience with startups
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline">
-          <div class="drawing">
-          </div>
-          <div class="text">
-            January 2014 - January 2014
-          </div>
-        </div>
-      </div>
-
-      <div class="experience">
-        <div class="entry">
-          <div class="expTitle">
-            <div class="text">
-              Scholar at Caribbean Computing Center for Excellence (CCCE) - San Juan, Puerto Rico
-            </div>
-            <div class="myCircle"></div>
-          </div>
-          <div class="expBody">
-            <ul>
-              <li>Researched computer security topics, focusing on web application security.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline">
-          <div class="drawing">
-          </div>
-          <div class="text">
-            August 2011 - September 2012
-          </div>
-        </div>
-      </div>
-
-      <div class="experience">
-        <div class="entry">
-          <div class="expTitle">
-            <div class="text">
-              Research Assistant at LSIIT of the University of Strasbourg – France
-            </div>
-            <div class="myCircle"></div>
-          </div>
-          <div class="expBody">
-            <ul>
-              <li>Developed a plug-in written in Java for version four of the Protégé ontology visualizing and
-                interpreting software</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline">
-          <div class="drawing">
-          </div>
-          <div class="text">
-            June 2012 - August 2012
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="section">
-    <label class="sectionLabel">Skills</label>
-    <div class="sectionBody">
-      <div class="underText" style="padding-top: 10;">
-        Entreprenurial Skills
-      </div>
-      <div class="entSkills">
-        Visual Studio Code, Eclipse, Bash/Shell, MS Office (Word, PowerPoint), Git, Unity, Blender,Jira,
-        Godot,Vagrant,Android Studio
-      </div>
-      <div class="underText" style="padding-top: 5;">
-        Technical Skills
-      </div>
-
-      <div class="techSkills" style="padding-top: 10;">
-        <div class="techTools" style="padding-left: 20;">
-          <div class="underText" style="padding-top: 10;">
-            Familiarity with the following tools:
-          </div>
-          <div class="toolDiv" >
-            Temporal (1 year),Angular 2(2 years), Thrift(1 year), ASP.NET(<1 year), React Native(<2 year), LibGDX(2
-              years), Allegro(1year),Spring(3 years), Hibernate(3 years) Java EE(2 years), JQuery (1 year), JQuery
-              Mobile (<1 year) </div>
-              <div class="underText"  style="padding-top: 10;">
-                Familiarity with the following programming languages:
-              </div>
-              <div class="plDiv">
-                <canvas id="myChart" style="padding-left: 20;"></canvas>
-              </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <div class="section">
-    <label class="sectionLabel">Certifications</label>
-    <div class="sectionBody">
-      Oracle Certified Associate, Java SE 8 Programmer October 2022
-    </div>
-  </div>
-  <div class="section">
-    <label class="sectionLabel">Interest</label>
-    <div class="sectionBody">
-      Machine Learning,Game Jams, Game Development, Competitive Programming and Simulations,Temporal
-    </div>
-  </div>
-  <script>
-
-
-    // expTitle
-    const ctx = document.getElementById('myChart');
-
-    let chart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['HTML5', 'Java', 'Javascript', 'SQL', 'Python', 'C#', 'C', 'C++', 'CSS',  'TSQL', 'PGSQL', 'PLSQL', 'Groovy', 'Swift', 'Octave', 'GDScript'],
-        datasets: [{
-          label: 'Years of experience',
-          data: [15, 10, 5, 5, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-          borderWidth: 1,
-          backgroundColor: "rgba(0,0,0,1)",
-        }]
-      },
-      options: {
-        indexAxis: 'y',
-        scales: {
-          y: {
-            beginAtZero: true
+    <div class="components">
+      <div id="main_modal" class="modal">
+        <script>
+          let onClose = function(){
+            let modal = document.getElementById("main_modal");
+            modal.style.display = "none"
           }
-        }
-      }
-    });
-    var selectedObject = null;
-    function onMouseOver(e) {
-      let body = e.srcElement.parentElement.querySelectorAll(".expBody");
-      if (body[0]) {
-        if (selectedObject) {
-          selectedObject.innerHTML = selectedObject.innerText.replace("->", "");
-          selectedObject.parentElement.querySelectorAll(".expBody")[0].style.display = "none";
-        }
-        body[0].style.display = "block";
-        selectedObject = e.srcElement;
-        selectedObject.innerHTML = "->" + e.srcElement.innerText;
-        let collection2 = document.querySelectorAll(".expTitle");
-        collection2.forEach(function (element) {
-          element.removeEventListener("mouseenter", onMouseOver);
-          element.removeEventListener("click", onMouseOver);
-        })
-        setTimeout(function(){
-          let collection3 = document.querySelectorAll(".expTitle");
-          collection3.forEach(function (element) {
-            element.addEventListener("mouseenter", onMouseOver);
-            element.addEventListener("click", onMouseOver);
-          })
-        },350)
-      }
-      // display: block;
-    };
-    let collection = document.querySelectorAll(".expTitle");
-    collection.forEach(function (element) {
-      element.addEventListener("mouseenter", onMouseOver);
-      element.addEventListener("click", onMouseOver);
-    })
-    selectedObject = collection[1];
-    selectedObject.parentElement.querySelectorAll(".expBody")[0].style.display = "block";
-    selectedObject.innerHTML = "->" + collection[1].innerHTML;
-
-    let hoverSection = document.querySelectorAll("[name='expAndEd']")[0];
-    let hoverSectionHTML = hoverSection.innerHTML;
-    fadeTarget = hoverSection;
-    hoverSection.innerHTML = "Click on the text of experiences to see the details!"
-    var fadeEffect = setInterval(function () {
-      if (!fadeTarget.style.opacity) {
-        fadeTarget.style.opacity = 1;
-      }
-      if (fadeTarget.style.opacity > 0) {
-        fadeTarget.style.opacity -= 0.05;
-      } else {
-        fadeTarget.style.display = "none"
-        clearInterval(fadeEffect);
-      }
-    }, 100);
-
-
-  </script>
+        </script>
+        <div id="modal_body" >
+          <p id="title"></p>
+          <p id="date"></p>
+          <p id="location"></p>
+          <p id="keyDetails"></p>
+          <div id="summary"></div>
+          <a href="#" >
+            <p style="position: relative;left:45%; bottom: 0;font-size: calc(10px + 2vw);" onclick="onClose()">Close</p>
+          </a>
+        </div>
+      </div>
+      <div class="componentsrow">
+        <div style="
+          border-style: solid;
+          border-width: 1px;
+          border-color: black;
+          display: flex;
+          flex: 10 1 auto;
+          flex-direction: column;">
+          <div style="
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            flex-direction: column;">
+            <p class="titles">
+              Experience
+            </p>
+          </div>
+          <div class="component">
+            <div class="innerComponent" id="Experience">
+            </div>
+          </div>
+        </div>
+        <div style="
+          border-style: solid;
+          border-width: 1px;
+          border-color: black;
+          display: flex;
+          flex: 10 1 auto;
+          flex-direction: column;">
+          <div style="
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            flex-direction: column;">
+            <p class="titles">Education and Certifications</p>
+          </div>
+          <div class="component">
+            <div class="innerComponent" id="Education and Certifications">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="componentsrow">
+        <div style="
+          border-style: solid;
+          border-width: 1px;
+          border-color: black;
+          display: flex;
+          flex: 10 1 auto;
+          flex-direction: column;">
+          <div style="
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            flex-direction: column;">
+            <p class="titles">Projects</p>
+          </div>
+          <div class="component">
+            <div class="innerComponent" id="Projects">
+            </div>
+          </div>
+        </div>
+        <div style="
+          border-style: solid;
+          border-width: 1px;
+          border-color: black;
+          display: flex;
+          flex: 10 1 auto;
+          flex-direction: column;">
+          <div style="
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            flex-direction: column;">
+            <p class="titles">Skills</p>
+          </div>
+          <div class="component">
+            <div class="innerComponent" id="Skills">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="js/main.js"></script>
 </body>
-
 </html>

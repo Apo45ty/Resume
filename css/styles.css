@@ -1,0 +1,159 @@
+.main{
+  /* background-color: #FF00FF; */
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.modal{
+  position:fixed;
+  z-index: 100;
+  display: none;
+  height: 60%;
+  width: 60%;
+  left: 20%;
+  right: 20%;
+  top: 20%;
+  bottom: 20%;
+  background-color: gray;
+  overflow-y: scroll;
+}
+.modal #title{
+  font-size: calc(10px + 2vw);
+  text-align: center;
+}
+.modal #date{
+  font-size: calc(10px + 1vw);
+  text-align: center;
+}
+.modal #location{
+  font-size: calc(10px + 1vw);
+  text-align: center;
+}
+.modal #keydetails{
+  font-size: calc(10px + 1vw);
+  text-align: left;
+}
+.modal #summary{
+  font-size: calc(10px + 1vw);
+  text-align: left;
+}
+.name{
+  /* background-color: #FF0000; */
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+.name p {
+  flex: 1 1 auto; 
+  font-size: calc(10px + 2vw);
+  text-align: center;
+}
+.titles {
+  flex: 1 1 auto; 
+  font-size: calc(10px + 2vw);
+  text-align: center;
+}
+.components{
+  /* background-color: #0000FF; */
+  display: flex;
+  flex-direction: column;
+  flex: 10 1 auto;
+}
+.componentsrow{
+  /* background-color: #0F00FF; */
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+
+}
+.component{
+  /* background-color: #0F00FF; */
+  display: flex;
+  flex: 20 1 auto;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+.innerComponent{
+  /* background-color: #0F55FF; */
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  overflow-y: scroll;
+  flex-direction: column;
+}
+@keyframes fadeIn {
+  0% { 
+    opacity: 0; 
+    transform: scale(0);
+    z-index: -1;
+  }
+  100% { 
+    opacity: 1; 
+    color :black;
+    margin: -10px;
+    z-index: -1;
+  }
+}
+@keyframes fadeOut {
+  0% { 
+    opacity: 1; 
+    color :black;
+    background-color: red;
+  }
+  100% { 
+    transform: scale(0);
+    background-color: red;
+  }
+}
+@keyframes shrink {
+  0% { 
+    transform: scale(1);
+  }
+  100% { 
+    transform: scale(1);
+  }
+}
+.iconWithData{
+  flex: 1 1 auto;
+  display: grid;
+  border-radius: 20px;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 3%;
+}
+.iconWithDataDescription{
+  background-color: aqua;
+  border-radius: 20px;
+}
+.iconWithDataChild{
+  z-index: 1;
+  
+}
+.iconWithData .iconWithDataDescription, .iconWithData .iconWithDataChild {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.iconWithData:hover .iconWithDataChild{
+  animation: fadeIn 1s forwards;
+  display: block;
+}
+.hoveredLeave{
+  animation: fadeOut 1s;
+}
+.shrinkBackDown{
+  animation: shrink 1s;
+}
