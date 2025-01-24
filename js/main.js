@@ -338,6 +338,20 @@ window.onload = function() {
     GenerateIcons(windowWidth, "Education and Certifications", educationAndCert, ICON_MIN_WIDTH)
     GenerateIcons(windowWidth, "Projects", projects, ICON_MIN_WIDTH)
     GenerateIcons(windowWidth, "Skills", skills, ICON_MIN_WIDTH)
+
+    //Add animation to quadrants
+    document.querySelectorAll(".componentContainer").forEach(function(item, index) {
+        item.addEventListener('mouseenter', function() {
+            item.classList.remove('componentContainerRemoveAnim');
+            item.classList.add("hoveredComponent");
+        })
+        item.addEventListener('mouseleave', function() {
+            item.classList.add('componentContainerRemoveAnim');
+            item.classList.remove("hoveredComponent");
+        })
+    });
+
+    
 };
 
 function GenerateIcons(windowWidth, DOMID, elements, iconWidth) {
@@ -384,6 +398,7 @@ function GenerateIcons(windowWidth, DOMID, elements, iconWidth) {
         })
         item.addEventListener('click', function() {
             let modal = document.getElementById("main_modal");
+            modal.classList.remove('modalClose')
             modal.style.display = "block";
             let elel = modal.querySelector("#modal_body");
             if(elements[index].title)
